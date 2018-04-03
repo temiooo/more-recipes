@@ -9,7 +9,23 @@
   </head>
 
   <body>
-    <%= render 'layouts/auth_background' %>
+    <% if flash.present? %>
+      <script>
+        <% if flash[:success] %>
+          toastr.success($('<span><%= flash[:success] %></span>'))
+        <% end %>
+        <% if flash[:error] %>
+          toastr.error($('<span><%= flash[:error] %></span>'))
+        <% end %>
+      </script>
+    <% end %>
+
+    <div class="logo">
+      <%= image_tag("black-logo.png")%>
+    </div>
+
+    <h2> <%= flash[:error] %></h2>
+    
     <%= yield %>
   </body>
 </html>
