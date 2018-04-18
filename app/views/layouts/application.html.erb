@@ -3,29 +3,12 @@
   <head>
     <title>MoreRecipes</title>
     <%= csrf_meta_tags %>
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet">
+
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
   <body>
-
-    <% if flash.present? %>
-      <script>
-        <% if flash[:notice] %>
-          toastr.success($('<span><%= flash[:notice] %></span>'))
-        <% end %>
-        <% if flash[:error] %>
-          toastr.error($('<span><%= flash[:error] %></span>'))
-        <% end %>
-      </script>
-    <% end %>
-
-    <%= render 'layouts/navbar' %>
-
-    <div class="main-content">
-      <%= yield %>
-    </div>
+    <%= yield %>
   </body>
 </html>
