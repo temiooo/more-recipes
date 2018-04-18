@@ -18,6 +18,14 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'therubyracer', platforms: :ruby
+# Bootstrap styles
+gem 'bootstrap', '~> 4.0'
+#encrypt passwords
+gem 'bcrypt', '~> 3.1.7'
+# Use jquery as the JavaScript library
+gem "jquery-rails"
+# Use toastr-rails to display flash messages
+gem 'toastr-rails'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -42,6 +50,8 @@ group :development, :test do
   # Adds support for Capybara system testing and selenium driver
   gem 'capybara', '~> 2.13'
   gem 'selenium-webdriver'
+  gem "pry"
+  gem "rspec"
 end
 
 group :development do
@@ -51,6 +61,10 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+  #Allows usage of rails panel in chrome browser
+  gem "meta_request"
+  # Analyses and process the time for various renderings, queries and DOM loading
+  # gem "rack-mini-profiler"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
