@@ -1,0 +1,19 @@
+<div class="login-form">
+  <h2 class="display-4 text-center">Sign In</h2>
+  <h6 class="display-4 text-center">
+    New to MoreRecipes? <%= link_to "Sign Up", register_path, class: "register-link"%>
+  </h6>
+  <hr>
+  <%= form_with model: @user do |f| %>
+    <div class="form-group">
+      <%= f.label :username %>
+      <%= f.text_field :username, class: "form-control" %>
+    </div>
+    <div class="form-group">
+      <%= f.label :password %>
+      <%= f.password_field :password, class: "form-control" %>
+    </div>
+    <%= f.submit "Login", class: "btn login-btn" %>
+  <% end %>
+  <p class="forgot-password">Forgot password?</p>
+</div>
