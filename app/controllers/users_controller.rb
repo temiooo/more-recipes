@@ -1,21 +1,12 @@
 class UsersController < ApplicationController
-  def new
-    @user = User.new
-  end
-
   def create
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      flash[:notice] = "You are registered."
-      redirect_to recipes_path
+      redirect_to recipes_path, notice: "Thank you for signing up!"
     else
-      puts  @user.errors.full_messages
-      puts "++++++++++++++++++=="
-      flash[:error] = "Something went wrong, please try again."
-      # binding.pry
+      flash[:error] = @user.errors.full_messages[0]
       redirect_to register_path
-      # render 'new'
     end
   end
 

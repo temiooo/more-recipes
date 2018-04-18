@@ -64,7 +64,7 @@ group :development do
   #Allows usage of rails panel in chrome browser
   gem "meta_request"
   # Analyses and process the time for various renderings, queries and DOM loading
-  gem "rack-mini-profiler"
+  # gem "rack-mini-profiler"
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem

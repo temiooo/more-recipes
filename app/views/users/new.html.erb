@@ -1,7 +1,10 @@
-<div id="register-form">
+<div class="register-form">
   <h2 class="display-4 text-center">Sign Up</h2>
+  <h6 class="display-4 text-center">
+    Been here already? <%= link_to "Login", login_path, class: "login-link"%>
+  </h6>
   <hr>
-  <%= form_with model: @user do |f| %>
+  <%= form_with model: User.new do |f| %>
     <div class="form-group">
       <%= f.label :username %>
       <%= f.text_field :username, class: "form-control" %>
@@ -18,6 +21,6 @@
       <%= f.label :password %>
       <%= f.password_field :password, class: "form-control" %>
     </div>
-    <%= f.submit "Register", class: "btn btn-success register-btn" %>
+    <%= f.submit "Register", class: "btn register-btn" %>
   <% end %>
 </div>

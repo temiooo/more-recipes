@@ -1,21 +1,17 @@
 class SessionsController < ApplicationController
-  def new
-  end
-
   def create
     user = User.where(username: params[:username]).first
     if user && user.authenticate(params[:password])
       session[:user_id] = user.id
-      flash[:notice] = "Welcome, you've logged in."
-      redirect_to root_path
+      redirect_to recipes_path, notice: "Welcome, you've logged in."
     else
-      flash[:error] = "There is something wrong with your username or password."
+      flash[:error] = "Incorrect username or password"
       redirect_to login_path
     end
   end
   
   def destroy
-    session[:user_id] = nil # all that's necessary to end the session (set session user_id to nil)
+    session[:user_id] = nil
     flash[:notice] = "You've logged out."
     redirect_to root_path
   end
