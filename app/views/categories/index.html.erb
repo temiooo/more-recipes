@@ -1,0 +1,12 @@
+<%# <h1>Categories Page</h1> %>
+
+<div class="recipes-wrapper">
+  <% @categories.each do |category| %>
+    <div class="recipe-item">
+      <%= image_tag(category.category_image) %>
+      <div class="recipe-desc">
+        <h3><%= category.name%></h3>
+      </div>
+    </div>
+  <% end%>
+</div>

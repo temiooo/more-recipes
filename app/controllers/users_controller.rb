@@ -3,7 +3,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to recipes_path, notice: "Thank you for signing up!"
+      redirect_to categories_path, notice: "Thank you for signing up!"
     else
       flash[:error] = @user.errors.full_messages[0]
       redirect_to register_path

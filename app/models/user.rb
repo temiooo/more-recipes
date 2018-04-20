@@ -5,4 +5,6 @@ class User < ApplicationRecord
   validates :password, presence: true, on: :create, length: {minimum: 5}
 
   has_secure_password
+
+  has_many :recipes
 end

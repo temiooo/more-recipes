@@ -7,6 +7,7 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :create, :edit, :update]
   resources :recipes
+  resources :categories
   
   get "/login", to: "sessions#new"
   post "/login", to: "sessions#create"
