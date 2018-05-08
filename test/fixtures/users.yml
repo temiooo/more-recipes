@@ -3,15 +3,15 @@
 one:
   email: MyString
   username: MyString
-  phonenumber: 1
-  password: MyString
-  resetPasswordToken: MyString
-  resetpasswordExpires: 2018-03-04 21:40:50
+  phone_number: MyString
+  pasword_digest: MyString
+  reset_password_token: MyString
+  rest_password_expires: 2018-05-08 12:26:20
 
 two:
   email: MyString
   username: MyString
-  phonenumber: 1
-  password: MyString
-  resetPasswordToken: MyString
-  resetpasswordExpires: 2018-03-04 21:40:50
+  phone_number: MyString
+  pasword_digest: MyString
+  reset_password_token: MyString
+  rest_password_expires: 2018-05-08 12:26:20

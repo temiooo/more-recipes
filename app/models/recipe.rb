@@ -1,10 +1,11 @@
 class Recipe < ApplicationRecord
   validates :name, presence: true, uniqueness: true
-  validates :description, :ingredients, :method, presence: true
+  validates :description, :ingredients, :method, :category_id, presence: true
 
-  belongs_to :user
+  has_attached_file :recipe_image, styles: { medium: "300x400>", thumb: "50x50>"}
+  validates_attachment :recipe_image, presence: true,
+    :content_type => { :content_type =>  ["image/jpg", "image/jpeg", "image/gif", "image/png"] }
+
   belongs_to :category
-
-  has_attached_file :category_image, styles: { medium: "300x400>", thumb: "50x50>"}
-  validates_attachment :category_image, presence: true
+  belongs_to :user
 end

@@ -1,12 +1,17 @@
-<%# <h1>Categories Page</h1> %>
+<div class="category-header">
+  <h1 class="text-center">Categories</h1>
+  <p class="text-center">We've split up recipes by their main ingredients just to make it easier for you. Dig in!</p>
+</div>
 
-<div class="recipes-wrapper">
+<div class="category-wrapper">
   <% @categories.each do |category| %>
-    <div class="recipe-item">
-      <%= image_tag(category.category_image) %>
-      <div class="recipe-desc">
-        <h3><%= category.name%></h3>
+    <%= link_to category_recipes_path(category.id) do %>
+      <div class="category-item">
+        <%= image_tag(category.category_image) %>
+        <div class="category-desc">
+          <h3><%= category.name %></h3>
+        </div>
       </div>
-    </div>
+    <% end %>
   <% end%>
 </div>

@@ -7,8 +7,8 @@
   box-shadow: inset 0 2px 4px 0 hsla(0, 0%, 0%, 0.08);
 
   &:focus {
-    border-color: #ced4da;
-    box-shadow: inherit;
+    border-color: #ced4da !important;
+    box-shadow: none !important;
   }
 }
 
