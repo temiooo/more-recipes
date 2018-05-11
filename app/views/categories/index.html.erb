@@ -5,7 +5,7 @@
 
 <div class="category-wrapper">
   <% @categories.each do |category| %>
-    <%= link_to category_recipes_path(category.id) do %>
+    <%= link_to category_path(category.id) do %>
       <div class="category-item">
         <%= image_tag(category.category_image) %>
         <div class="category-desc">
@@ -13,5 +13,5 @@
         </div>
       </div>
     <% end %>
-  <% end%>
+  <% end %>
 </div>

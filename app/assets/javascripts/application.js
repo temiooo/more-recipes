@@ -16,3 +16,8 @@
 //= require_tree .
 //= require toastr
 //= require bootstrap
+
+$(document).ready(function () {
+  if (window.location.pathname == "/my_recipes")
+    new Recipe.App();
+});

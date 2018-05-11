@@ -4,6 +4,12 @@
 
 @import 'base';
 
+.add-recipe-modal{
+  .modal-content {
+    padding: 0 0.5rem;
+  }
+}
+
 .recipes-wrapper {
   display: grid;
   grid-gap: 40px;
@@ -63,4 +69,15 @@
   @include buttons;
   float: right;
   margin-right: 7px;
+}
+
+.form-control.ingredient-wrapper, .form-control.method-wrapper {
+  height: 8rem;
+  overflow: scroll;
+
+  input {
+    width: 97%;
+    border: none;
+    outline: none;
+  }
 }

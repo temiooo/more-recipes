@@ -6,64 +6,26 @@
     </button>
     <div style="clear: both;"></div>
   </div>
-  <div class="my-recipes-wrapper">
-    <%# <h1 class="no-recipes">You have not added any recipes yet</h1> %>
-    
-    <div class="recipes-wrapper">
-  <div class="recipe-item">
-    <%= image_tag("categories/potatoes.jpg") %>
-    <div class="recipe-desc">
-      <h3>Lemon roast potatoes</h3>
-      <div class="actions">
-        <span class="fav"><i class="icon ion-heart"></i> &nbsp;23 favourites</span>
-        <span class="reviews"><i class="icon ion-chatboxes"></i> &nbsp;23 reviews</span>
-      </div>
-    </div>
-  </div>
-   <div class="recipe-item">
-    <%= image_tag("categories/potatoes.jpg") %>
-    <div class="recipe-desc">
-      <h3>Lemon roast potatoes</h3>
-      <div class="actions">
-        <span class="fav"><i class="icon ion-heart"></i> &nbsp;23 favourites</span>
-        <span class="reviews"><i class="icon ion-chatboxes"></i> &nbsp;23 reviews</span>
-      </div>
-    </div>
-  </div>
-   <div class="recipe-item">
-    <%= image_tag("categories/potatoes.jpg") %>
-    <div class="recipe-desc">
-      <h3>Lemon roast potatoes</h3>
-      <div class="actions">
-        <span class="fav"><i class="icon ion-heart"></i> &nbsp;23 favourites</span>
-        <span class="reviews"><i class="icon ion-chatboxes"></i> &nbsp;23 reviews</span>
-      </div>
-    </div>
-  </div>
-   <div class="recipe-item">
-    <%= image_tag("categories/potatoes.jpg") %>
-    <div class="recipe-desc">
-      <h3>Lemon roast potatoes</h3>
-      <div class="actions">
-        <span class="fav"><i class="icon ion-heart"></i> &nbsp;23 favourites</span>
-        <span class="reviews"><i class="icon ion-chatboxes"></i> &nbsp;23 reviews</span>
-      </div>
-    </div>
-  </div>
-   <div class="recipe-item">
-    <%= image_tag("categories/potatoes.jpg") %>
-    <div class="recipe-desc">
-      <h3>Lemon roast potatoes</h3>
-      <div class="actions">
-        <span class="fav"><i class="icon ion-heart"></i> &nbsp;23 favourites</span>
-        <span class="reviews"><i class="icon ion-chatboxes"></i> &nbsp;23 reviews</span>
-      </div>
-    </div>
-  </div>
-</div>
 
+  <div class="recipes-wrapper">
+    <% if @my_recipes.length > 0 %>
 
+      <% @my_recipes.each do |my_recipe| %>
+        <div class="recipe-item">
+          <%= image_tag(my_recipe.recipe_image) %>
+          <div class="recipe-desc">
+            <h3><%= my_recipe.name %></h3>
+            <div class="actions">
+              <span class="fav"><i class="icon ion-heart"></i> &nbsp;23 favourites</span>
+              <span class="reviews"><i class="icon ion-chatboxes"></i> &nbsp;23 reviews</span>
+            </div>
+          </div>
+        </div>
+      <% end %>
 
+    <% else %>
+      <h1 class="no-recipes">You have not added any recipes yet</h1>
+    <% end %>
   </div>
 </div>
 

@@ -7,7 +7,8 @@
           <i class="icon ion-close"></i>
         </button>
       </div>
-      <%= form_with do |f| %>
+      <%= form_with model: Recipe.new do |f| %>
+        <%= f.hidden_field :user_id, value: current_user[:id] %>
         <div class="modal-body">       
           <div class="form-row">
             <div class="form-group col-md-7">
@@ -21,22 +22,23 @@
           </div>
           <div class="form-group">
             <%= f.label :description %>
-            <%= f.text_area :body, class: "form-control" %>
+            <%= f.text_area :description, class: "form-control" %>
           </div>
           <div class="form-group">
             <%= f.label :ingredients %>
-            <%= f.text_area :body, class: "form-control", rows: "5"%>
+            <div class="form-control ingredient-wrapper">
+              <%= f.text_field :ingredient_input, class: "ingredient-input" %>
+            </div>
           </div>
           <div class="form-group">
             <%= f.label :method %>
-            <%= f.text_area :body, class: "form-control", rows: "5" %>
+            <div class="form-control method-wrapper">
+              <%= f.text_field :method_input, class: "method-input" %>
+            </div>
           </div>
           <div class="form-group">
-            <%= f.label :recipe_mage %>
-            <div class="custom-file">
-              <input type="file" class="custom-file-input" id="customFile">
-              <label class="custom-file-label" for="customFile">Choose file</label>
-            </div>
+            <%= f.label :recipe_image %>
+            <%= f.file_field :recipe_image, class: "form-control" %>
           </div>
         </div>
         <div class="modal-footer">
