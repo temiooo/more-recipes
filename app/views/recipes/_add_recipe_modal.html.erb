@@ -7,7 +7,7 @@
           <i class="icon ion-close"></i>
         </button>
       </div>
-      <%= form_with model: Recipe.new do |f| %>
+      <%= form_with model: Recipe.new, id: "add-recipe-form" do |f| %>
         <%= f.hidden_field :user_id, value: current_user[:id] %>
         <div class="modal-body">       
           <div class="form-row">

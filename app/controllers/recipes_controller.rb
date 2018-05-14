@@ -4,13 +4,12 @@ class RecipesController < ApplicationController
   end
 
   def create
-    binding.pry
     @recipe = Recipe.new(recipe_params)
-    if @recipe.save
+    if @recipe.save!
       flash[:notice] = "New recipe added"
-      redirect_to categories_path
+      redirect_to my_recipes_path
     else
-      flash[:error] = @user.errors.full_messages[0]
+      flash[:error] = @recipe.errors.full_messages[0]
       redirect_to my_recipes_path
     end
   end
@@ -27,9 +26,9 @@ class RecipesController < ApplicationController
       :user_id,
       :category_id,
       :description,
-      :ingredients,
-      :method,
-      :recipe_image
+      :recipe_image,
+      :ingredients => [],
+      :method => []
     )
   end
 end

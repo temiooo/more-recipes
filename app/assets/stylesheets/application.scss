@@ -38,3 +38,8 @@ textarea {
 .ion-close {
   cursor: pointer;
 }
+
+label.error, span.error {
+  font-size: .9rem;
+  color: $red;
+}

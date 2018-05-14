@@ -16,6 +16,8 @@
 //= require_tree .
 //= require toastr
 //= require bootstrap
+//= require jquery.validate
+//= require jquery.validate.additional-methods
 
 $(document).ready(function () {
   if (window.location.pathname == "/my_recipes")

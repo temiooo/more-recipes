@@ -29,7 +29,9 @@ gem 'toastr-rails'
 # Use paperclip for image upload
 gem "paperclip", "~> 6.0.0"
 # use ionicons for icons
-gem 'ionicons-rails'
+gem "ionicons-rails"
+# add jquery validation
+gem "jquery-validation-rails"
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'

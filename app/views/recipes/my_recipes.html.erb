@@ -7,9 +7,8 @@
     <div style="clear: both;"></div>
   </div>
 
-  <div class="recipes-wrapper">
-    <% if @my_recipes.length > 0 %>
-
+  <% if @my_recipes.length > 0 %>
+    <div class="recipes-wrapper">
       <% @my_recipes.each do |my_recipe| %>
         <div class="recipe-item">
           <%= image_tag(my_recipe.recipe_image) %>
@@ -22,11 +21,10 @@
           </div>
         </div>
       <% end %>
-
-    <% else %>
-      <h1 class="no-recipes">You have not added any recipes yet</h1>
-    <% end %>
-  </div>
+    </div>
+  <% else %>
+    <h1 class="no-recipes text-center">You have not added any recipes yet</h1>
+  <% end %>
 </div>
 
 <%= render 'add_recipe_modal' %>

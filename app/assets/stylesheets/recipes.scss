@@ -4,9 +4,14 @@
 
 @import 'base';
 
-.add-recipe-modal{
+.add-recipe-modal {
   .modal-content {
     padding: 0 0.5rem;
+  }
+
+  .modal-body {
+    max-height: 700px;
+    overflow: scroll;
   }
 }
 
