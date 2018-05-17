@@ -4,5 +4,7 @@ class CategoriesController < ApplicationController
   end
 
   def show
+    @category_recipes = Recipe.where(category_id: params[:id])
+    binding.pry
   end
 end
