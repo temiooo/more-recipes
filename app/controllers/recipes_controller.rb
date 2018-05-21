@@ -1,6 +1,9 @@
 class RecipesController < ApplicationController
+  before_action :require_user
+
   def index
-    @recipes = Recipe.all
+    @category_recipes = Recipe.where(category_id: params[:category_id])
+    @category_name = Category.find(params[:category_id]).name
   end
 
   def create
@@ -16,6 +19,10 @@ class RecipesController < ApplicationController
 
   def my_recipes
     @my_recipes = current_user.recipes
+  end
+
+  def all_recipes
+    @recipes = Recipes.all
   end
 
   private

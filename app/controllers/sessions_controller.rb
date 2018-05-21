@@ -1,4 +1,6 @@
 class SessionsController < ApplicationController
+  before_action :is_authenticated?, only: [:new, :create]
+
   def create
     user = User.where(username: params[:username]).first
     if user && user.authenticate(params[:password])
@@ -13,6 +15,6 @@ class SessionsController < ApplicationController
   def destroy
     session[:user_id] = nil
     flash[:notice] = "You've logged out."
-    redirect_to root_path
+    redirect_to login_path
   end
 end

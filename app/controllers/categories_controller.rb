@@ -1,10 +1,6 @@
 class CategoriesController < ApplicationController
+  before_action :require_user
   def index
     @categories = Category.all
-  end
-
-  def show
-    @category_recipes = Recipe.where(category_id: params[:id])
-    binding.pry
   end
 end

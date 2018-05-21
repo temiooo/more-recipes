@@ -1,12 +1,27 @@
-<div class="recipes-wrapper">
-  <div class="recipe-item">
-    <%= image_tag("categories/potatoes.jpg") %>
-    <div class="recipe-desc">
-      <h3>Lemon roast potatoes</h3>
-      <div class="actions">
-        <span class="fav"><i class="icon ion-heart"></i> &nbsp;23 favourites</span>
-        <span class="reviews"><i class="icon ion-chatboxes"></i> &nbsp;23 reviews</span>
-      </div>
+<div>
+  <div class="category-header">
+  <h1 class="text-center"><%= @category_name %> (<%= @category_recipes.length %>)</h1>
+</div>
+
+  <% if @category_recipes.length > 0 %>
+    <div class="recipes-wrapper">
+      <% @category_recipes.each do |recipe| %>
+        <%= link_to recipe_path(recipe.id) do %>
+          <div class="recipe-item">
+            <%= image_tag(recipe.recipe_image) %>
+            <div class="recipe-desc">
+              <h3><%= recipe.name %></h3>
+              <div class="actions">
+                <span class="fav"><i class="icon ion-heart"></i> &nbsp;23 favourites</span>
+                <span class="reviews"><i class="icon ion-chatboxes"></i> &nbsp;23 reviews</span>
+              </div>
+            </div>
+          </div>
+        <% end %>
+      <% end %>
     </div>
-  </div>
+  <% else %>
+    <h1 class="no-recipes text-center">No recipes in this category.</h1>
+    <h3 class="text-center">¯\_(ツ)_/¯</h3>
+  <% end %>
 </div>

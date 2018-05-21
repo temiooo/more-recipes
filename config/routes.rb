@@ -11,8 +11,10 @@ Rails.application.routes.draw do
 
   resources :users, only: [:show, :create, :edit, :update]
   
-  resources :categories
-  resources :recipes
+  resources :categories, only: [:index] do
+    resources :recipes, only: [:index]
+  end
 
+  resources :recipes, only: [:new, :create, :edit, :show, :update, :destroy]
   get "/my_recipes", to: "recipes#my_recipes"
 end

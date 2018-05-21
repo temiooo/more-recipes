@@ -1,4 +1,6 @@
 class UsersController < ApplicationController
+  before_action :is_authenticated?, only: [:new, :create]
+
   def create
     @user = User.new(user_params)
     if @user.save
