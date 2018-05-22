@@ -40,3 +40,20 @@
     text-decoration: none;
   }
 }
+
+@mixin text-link-style {
+  a {
+  color: #000000;
+  text-decoration: none;
+  
+    &:active, &:visited, &:focus, &:hover {
+      color: #000000;
+      text-decoration: none;
+    }
+
+    &:hover {
+      color: $secondary-color;
+      text-decoration: none;
+    }
+  }
+}

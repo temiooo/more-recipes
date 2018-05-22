@@ -5,19 +5,27 @@
 
   <% if @category_recipes.length > 0 %>
     <div class="recipes-wrapper">
-      <% @category_recipes.each do |recipe| %>
-        <%= link_to recipe_path(recipe.id) do %>
+      <% @category_recipes.each do |recipe| %>   
           <div class="recipe-item">
             <%= image_tag(recipe.recipe_image) %>
+            <div class="overlay">
+              <%= link_to edit_recipe_path(recipe.id) do %>
+                <i class="icon ion-edit"></i>
+              <% end %>
+              <%= link_to recipe_path(recipe.id), method: :delete, data: { confirm: 'Are you sure'} do %>
+                <i class="icon ion-trash-b"></i>
+              <% end %>
+            </div>
             <div class="recipe-desc">
-              <h3><%= recipe.name %></h3>
+              <%= link_to recipe_path(recipe.id) do %>
+                <h3><%= recipe.name.capitalize %></h3>
+              <% end %>
               <div class="actions">
                 <span class="fav"><i class="icon ion-heart"></i> &nbsp;23 favourites</span>
                 <span class="reviews"><i class="icon ion-chatboxes"></i> &nbsp;23 reviews</span>
               </div>
             </div>
-          </div>
-        <% end %>
+          </div>  
       <% end %>
     </div>
   <% else %>

@@ -27,50 +27,89 @@
   padding: 2% 5%;
 
   .recipe-item {
+    position: relative;
     margin: 5px;
     margin-bottom: 20px;
 
     img {
       width: 100%;
-      border-radius: 10px;
+      border-radius: 10px 10px 0 0;
       cursor: pointer;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      opacity: 0;
+      width: 100%;
+      height: 77%;
+      display: flex;
+      font-size: 2rem;
+      transition: .5s ease;
+      flex-direction: column;
+      align-items: flex-end;
+      border-radius: 10px 10px 0 0;
+      background: rgba(0, 0, 0, 0.1); /* Black see-through */
+    }
+
+    .overlay a {
+      border-radius: 50%;
+      border: 1px solid #ffffff;
+      color: #ffffff !important;
+
+      &:hover {
+        background-color: #000000;
+      }
+
+      &:first-child {
+        margin: 10px;
+        padding: 0 10px;
+      }
+
+      &:nth-child(2) {
+        margin-right: 10px;
+        padding: 0 14px;
+      }
+    }
+  }
+}
+
+.recipe-item:hover .overlay {
+  opacity: 1;
+}
+
+.recipe-desc {
+  @include text-link-style;
+
+  h3 {
+    cursor: pointer;
+    margin-bottom: 0;
+    padding-top: 10px;
+    text-align: center;
+    font-family: 'PT Sans Narrow', sans-serif;
+  }
+
+  .actions {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  i {
+    font-size: 1.5rem;
+    vertical-align: middle;
+    color: $light-grey;
+    cursor: pointer;
+  }
+  
+  i.fav {
+    &:hover {
+      color: $red;
     }
   }
 
-  .recipe-desc {
-    h3 {
-      cursor: pointer;
-      margin-bottom: 0;
-      padding-top: 10px;
-      text-align: center;
-      font-family: 'PT Sans Narrow', sans-serif;
-    }
-
-    i {
-      font-size: 1.5rem;
-      vertical-align: middle;
-      color: $light-grey;
-      cursor: pointer;
-    }
-    
-    .fav {
-      float: left;
-
-      i {
-        &:hover {
-          color: $red;
-        }
-      }
-    }
-
-    .reviews {
-      float: right;
-
-      i {
-        &:hover {
-          color: $dark;
-        }
-      }
+  i.reviews {
+    &:hover {
+      color: $dark;
     }
   }
 }
