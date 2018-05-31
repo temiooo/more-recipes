@@ -12,8 +12,18 @@
       <% @my_recipes.each do |my_recipe| %>
         <div class="recipe-item">
           <%= image_tag(my_recipe.recipe_image) %>
+          <div class="overlay">
+            <a class="recipe-edit" data-toggle="modal" data-target= "#editRecipeModal" data-value="<%= my_recipe.id %>">
+              <i class="icon ion-edit"></i>
+            </a>
+            <%= link_to recipe_path(my_recipe.id), method: :delete, data: { confirm: 'Are you sure ?' } do %>
+              <i class="icon ion-trash-b"></i>
+            <% end %>
+          </div>
           <div class="recipe-desc">
-            <h3><%= my_recipe.name %></h3>
+            <%= link_to recipe_path(my_recipe.id) do %>
+              <h3><%= my_recipe.name.capitalize %></h3>
+            <% end %>
             <div class="actions">
               <span class="fav"><i class="icon ion-heart"></i> &nbsp;23 favourites</span>
               <span class="reviews"><i class="icon ion-chatboxes"></i> &nbsp;23 reviews</span>
@@ -29,3 +39,4 @@
 </div>
 
 <%= render 'add_recipe_modal' %>
+<%= render 'edit_recipe_modal' %>

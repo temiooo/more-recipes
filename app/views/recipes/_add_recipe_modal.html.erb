@@ -3,47 +3,17 @@
     <div class="modal-content">
       <div class="modal-header">
         <h3 class="modal-title" id="exampleModalLabel">Add Recipe</h3>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+        <button type="button" class="close recipe-form-close" data-dismiss="modal" aria-label="Close">
           <i class="icon ion-close"></i>
         </button>
       </div>
       <%= form_with model: Recipe.new, id: "add-recipe-form" do |f| %>
         <%= f.hidden_field :user_id, value: current_user[:id] %>
-        <div class="modal-body">       
-          <div class="form-row">
-            <div class="form-group col-md-7">
-              <%= f.label :name %>
-              <%= f.text_field :name, class: "form-control" %>
-            </div>
-            <div class="form-group col-md-5">
-              <%= f.label :category %>
-              <%= f.select :category_id,  Category.all.collect {|c| [ c.name, c.id ] }, { prompt: "Select Category" }, { class: "form-control category-select" } %>
-            </div>
-          </div>
-          <div class="form-group">
-            <%= f.label :description %>
-            <%= f.text_area :description, class: "form-control" %>
-          </div>
-          <div class="form-group">
-            <%= f.label :ingredients %>
-            <div class="form-control ingredient-wrapper">
-              <%= f.text_field :ingredient_input, class: "ingredient-input" %>
-            </div>
-          </div>
-          <div class="form-group">
-            <%= f.label :method %>
-            <div class="form-control method-wrapper">
-              <%= f.text_field :method_input, class: "method-input" %>
-            </div>
-          </div>
-          <div class="form-group">
-            <%= f.label :recipe_image %>
-            <%= f.file_field :recipe_image, class: "form-control" %>
-          </div>
-        </div>
+        <%= render 'form_fields', f: f %>
         <div class="modal-footer">
-          <%= f.submit "Save", class: "btn btn-primary save-recipe" %>
+          <%= f.submit "Save", class: "btn btn-primary save-recipe", data: { :disable_with => "Saving..." } %>
         </div>
       <% end %>
     </div>
   </div>
+</div>

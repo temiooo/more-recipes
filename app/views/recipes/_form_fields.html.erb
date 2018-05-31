@@ -1,0 +1,32 @@
+<div class="modal-body">       
+  <div class="form-row">
+    <div class="form-group col-md-7">
+      <%= f.label :name %>
+      <%= f.text_field :name, class: "form-control", id: "recipe-name" %>
+    </div>
+    <div class="form-group col-md-5">
+      <%= f.label :category %>
+      <%= f.select :category_id,  Category.all.collect {|c| [ c.name, c.id ] }, { prompt: "Select Category" }, { class: "form-control category-select" } %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :description %>
+    <%= f.text_area :description, class: "form-control", id: "recipe-description" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :ingredients %>
+    <div class="form-control ingredient-wrapper">
+      <%= f.text_field :ingredient_input, class: "ingredient-input" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :method %>
+    <div class="form-control method-wrapper">
+      <%= f.text_field :method_input, class: "method-input" %>
+    </div>
+  </div>
+  <div class="form-group">
+    <%= f.label :recipe_image %>
+    <%= f.file_field :recipe_image, class: "form-control", id: "recipe-image" %>
+  </div>
+</div>
