@@ -54,7 +54,6 @@ class Recipe.App
       if event.keyCode == 13
         itemValue = $("#{formName} .#{type}-input").val().trim()
 
-        console.log "help at this point", type, itemValue
         if itemValue.length > 0
           inputWidth = @getInputTextWidth(itemValue) + 10
 
