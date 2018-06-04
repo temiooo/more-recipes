@@ -1,0 +1,42 @@
+<div>
+  <div class="my-recipes-header">
+    <h1 class="text-center">My Recipes</h1>
+    <button class="btn btn-primary add-recipe-btn" data-toggle="modal" data-target="#addRecipeModal">
+      Add Recipe &nbsp; <i class="icon ion-plus"></i>
+    </button>
+    <div style="clear: both;"></div>
+  </div>
+
+  <% if @my_recipes.length > 0 %>
+    <div class="recipes-wrapper">
+      <% @my_recipes.each do |my_recipe| %>
+        <div class="recipe-item">
+          <%= image_tag(my_recipe.recipe_image) %>
+          <div class="overlay">
+            <a class="recipe-edit" data-toggle="modal" data-target= "#editRecipeModal" data-value="<%= my_recipe.id %>">
+              <i class="icon ion-edit"></i>
+            </a>
+            <%= link_to recipe_path(my_recipe.id), method: :delete, data: { confirm: 'Are you sure ?' } do %>
+              <i class="icon ion-trash-b"></i>
+            <% end %>
+          </div>
+          <div class="recipe-desc">
+            <%= link_to recipe_path(my_recipe.id) do %>
+              <h3><%= my_recipe.name.capitalize %></h3>
+            <% end %>
+            <div class="actions">
+              <span class="fav"><i class="icon ion-heart"></i> &nbsp;23 favourites</span>
+              <span class="reviews"><i class="icon ion-chatboxes"></i> &nbsp;23 reviews</span>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% else %>
+    <h1 class="no-recipes text-center">You have not added any recipes.</h1>
+    <h3 class="text-center">¯\_(ツ)_/¯</h3>
+  <% end %>
+</div>
+
+<%= render 'add_recipe_modal' %>
+<%= render 'edit_recipe_modal' %>

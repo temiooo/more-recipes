@@ -1,0 +1,19 @@
+<div class="modal fade add-recipe-modal" id="addRecipeModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true" data-backdrop="static">
+  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3 class="modal-title" id="exampleModalLabel">Add Recipe</h3>
+        <button type="button" class="close recipe-form-close" data-dismiss="modal" aria-label="Close">
+          <i class="icon ion-close"></i>
+        </button>
+      </div>
+      <%= form_with model: Recipe.new, id: "add-recipe-form" do |f| %>
+        <%= f.hidden_field :user_id, value: current_user[:id] %>
+        <%= render 'form_fields', f: f %>
+        <div class="modal-footer">
+          <%= f.submit "Save", class: "btn btn-primary save-recipe", data: { :disable_with => "Saving..." } %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>

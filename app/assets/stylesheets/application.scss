@@ -17,9 +17,11 @@
 // Custom bootstrap variables must be set or imported *before* bootstrap.
 @import "bootstrap";
 @import "toastr";
+@import 'ionicons';
 
 html, body {
   font-family: 'Montserrat', sans-serif;
+  height: 100%;
 }
 
 .logo img {
@@ -28,4 +30,17 @@ html, body {
 
 .custom-nav {
   padding: 0.8rem 3rem;
+}
+
+textarea {
+  resize: none;
+}
+
+.ion-close {
+  cursor: pointer;
+}
+
+label.error, span.error {
+  font-size: .9rem;
+  color: $red;
 }

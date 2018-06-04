@@ -26,6 +26,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem "jquery-rails"
 # Use toastr-rails to display flash messages
 gem 'toastr-rails'
+# Use paperclip for image upload
+gem "paperclip", "~> 6.0.0"
+# use ionicons for icons
+gem "ionicons-rails"
+# add jquery validation
+gem "jquery-validation-rails"
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
@@ -69,3 +75,5 @@ end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+
+ruby "2.4.1"
