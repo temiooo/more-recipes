@@ -7,7 +7,7 @@
     <div class="recipes-wrapper">
       <% @category_recipes.each do |recipe| %>   
           <div class="recipe-item">
-          <%= image_tag(recipe.recipe_image) %>
+          <%= image_tag(recipe.recipe_image_url) %>
           <div class="recipe-desc">
             <h3><%= recipe.name %></h3>
             <div class="actions">

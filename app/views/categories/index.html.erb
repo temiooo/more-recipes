@@ -7,7 +7,7 @@
   <% @categories.each do |category| %>
     <%= link_to category_recipes_path(category.id) do %>
       <div class="category-item">
-        <%= image_tag(category.category_image) %>
+        <%= image_tag(category.category_image_url) %>
         <div class="category-desc">
           <h3><%= category.name %></h3>
         </div>

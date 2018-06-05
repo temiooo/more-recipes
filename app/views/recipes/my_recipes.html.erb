@@ -11,7 +11,7 @@
     <div class="recipes-wrapper">
       <% @my_recipes.each do |my_recipe| %>
         <div class="recipe-item">
-          <%= image_tag(my_recipe.recipe_image) %>
+          <%= image_tag(my_recipe.recipe_image_url) %>
           <div class="overlay">
             <a class="recipe-edit" data-toggle="modal" data-target= "#editRecipeModal" data-value="<%= my_recipe.id %>">
               <i class="icon ion-edit"></i>

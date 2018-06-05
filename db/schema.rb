@@ -17,10 +17,7 @@ ActiveRecord::Schema.define(version: 20180508115235) do
 
   create_table "categories", force: :cascade do |t|
     t.string "name"
-    t.string "category_image_file_name"
-    t.string "category_image_content_type"
-    t.integer "category_image_file_size"
-    t.datetime "category_image_updated_at"
+    t.string "category_image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["name"], name: "index_categories_on_name", unique: true
@@ -31,10 +28,7 @@ ActiveRecord::Schema.define(version: 20180508115235) do
     t.string "description"
     t.string "ingredients", array: true
     t.string "method", array: true
-    t.string "recipe_image_file_name"
-    t.string "recipe_image_content_type"
-    t.integer "recipe_image_file_size"
-    t.datetime "recipe_image_updated_at"
+    t.string "recipe_image"
     t.bigint "category_id"
     t.bigint "user_id"
     t.datetime "created_at", null: false

@@ -26,12 +26,13 @@ gem 'bcrypt', '~> 3.1.7'
 gem "jquery-rails"
 # Use toastr-rails to display flash messages
 gem 'toastr-rails'
-# Use paperclip for image upload
-gem "paperclip", "~> 6.0.0"
 # use ionicons for icons
 gem "ionicons-rails"
 # add jquery validation
 gem "jquery-validation-rails"
+
+gem 'carrierwave'
+gem 'cloudinary'
 
 # Use CoffeeScript for .coffee assets and views
 gem 'coffee-rails', '~> 4.2'
