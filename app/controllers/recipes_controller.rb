@@ -1,5 +1,6 @@
 class RecipesController < ApplicationController
   before_action :require_user
+  include RecipesHelper
 
   def index
     @category_recipes = Recipe.where(category_id: params[:category_id])
@@ -11,7 +12,6 @@ class RecipesController < ApplicationController
   end
 
   def create
-    binding.pry
     @recipe = Recipe.new(recipe_params)
     if @recipe.save
       flash[:notice] = "New recipe added"
@@ -28,10 +28,12 @@ class RecipesController < ApplicationController
   end
 
   def update
-    @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])  
+    image_id = get_current_image
     if @recipe.update(recipe_params)
       flash[:notice] = "Recipe updated successfully"
       redirect_to my_recipes_path
+      delete_previous_image(image_id)
     else
       flash[:error] = @recipe.errors.full_messages[0]
       redirect_to my_recipes_path
