@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipe: one
+  favourite_status: false
+  user: one
+
+two:
+  recipe: two
+  favourite_status: false
+  user: two

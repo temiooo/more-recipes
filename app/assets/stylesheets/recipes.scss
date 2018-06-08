@@ -64,6 +64,7 @@
       &:first-child {
         margin: 10px;
         padding: 0 10px;
+        cursor: pointer;
       }
 
       &:nth-child(2) {
@@ -94,24 +95,27 @@
     justify-content: space-between;
   }
 
-  i {
-    font-size: 1.5rem;
-    vertical-align: middle;
+  span {
     color: $light-grey;
     cursor: pointer;
+    outline: none;
+
+    i {
+      font-size: 1.3rem;
+    }
   }
   
-  i.fav {
-    &:hover {
-      color: $red;
-    }
-  }
+  // span.fav i {
+    // &:hover {
+      // color: $red;
+    // }
+  // }
 
-  i.reviews {
-    &:hover {
-      color: $dark;
-    }
-  }
+  // span.reviews i {
+  //   &:hover {
+  //     color: $dark;
+  //   }
+  // }
 }
 
 .add-recipe-btn {
@@ -128,5 +132,16 @@
     width: 97%;
     border: none;
     outline: none;
+  }
+}
+
+.category-link {
+  display: flex;
+  justify-content: flex-end;
+  font-family: 'PT Sans Narrow', sans-serif;
+  margin-right: 2%;
+  @include text-link-style;
+  a {
+    color: $grey;
   }
 }

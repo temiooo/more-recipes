@@ -1,11 +1,12 @@
 <div>
   <div class="category-header">
-  <h1 class="text-center"><%= @category_name %> (<%= @category_recipes.length %>)</h1>
+  <h1 class="text-center">All Recipes (<%= @recipes.length %>) </h1>
+  <h3 class="category-link"> <%= link_to "View Recipes by Category", categories_path %> </h3>
 </div>
 
-  <% if @category_recipes.length > 0 %>
+  <% if @recipes.length > 0 %>
     <div class="recipes-wrapper">
-      <% @category_recipes.each do |recipe| %>   
+      <% @recipes.each do |recipe| %>   
           <div class="recipe-item">
           <%= image_tag(recipe[:recipe].recipe_image_url) %>
           <div class="recipe-desc">
@@ -16,7 +17,7 @@
               <span class="fav" <% if recipe[:mine?] %> data-toggle="popover" data-placement="top" data-trigger="hover" data-content="You cannot favourite your own recipe" <% end %> >
                 <i class="icon ion-heart" 
                   <% if recipe[:mine?] %>
-                    style= "pointer-events:none;"
+                    style= "pointer-events:none;color:#424242;"
                   <% else %>
                     data-value = <%= recipe[:my_favourite] %>
                     data-recipe-id = "<%= recipe[:recipe].id %>"
@@ -27,7 +28,7 @@
                 &nbsp;<%= recipe[:favourite_count]%> favourite<%= "s" if recipe[:favourite_count] != 1 %>
               </span>
               <span class="reviews">
-                <i class="icon ion-chatboxes">
+                <i class="icon ion-chatboxes" style="color:#424242;">
                 </i>
                 &nbsp;23 reviews
               </span>
@@ -37,7 +38,7 @@
       <% end %>
     </div>
   <% else %>
-    <h1 class="no-recipes text-center">No recipes in this category.</h1>
+    <h1 class="no-recipes text-center">No recipes have been added</h1>
     <h3 class="text-center">¯\_(ツ)_/¯</h3>
   <% end %>
 </div>

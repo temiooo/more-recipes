@@ -10,13 +10,13 @@ module ApplicationHelper
   def require_user
     if !logged_in?
       flash[:error] = "Please log in to do that."
-      redirect_to root_path
+      redirect_to login_path
     end
   end
 
   def is_authenticated?
     if logged_in?
-      redirect_to categories_path
+      redirect_to root_path
     end
   end
 end

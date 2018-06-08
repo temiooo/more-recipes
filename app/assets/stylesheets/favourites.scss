@@ -1,0 +1,19 @@
+// Place all the styles related to the Favourites controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+@keyframes favourite {
+  50% {
+    opacity: 0.3;
+  }
+  70% {
+    opacity: 0.5;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+.fav i {
+  // animation: favourite 1s ease-out;
+}

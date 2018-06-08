@@ -13,6 +13,7 @@
 //= require jquery
 //= require rails-ujs
 //= require turbolinks
+//= require_tree ./global
 //= require_tree .
 //= require toastr
 //= require bootstrap
@@ -20,23 +21,8 @@
 //= require jquery.validate.additional-methods
 
 $(document).on("turbolinks:load", function () {
+  $('span.fav').popover();
+  $('a.dropdown-toggle').dropdown();
   new Recipe.App();
+  new Favourite.App();
 });
-
-// $(document).on('ready page:load', function () {
-//   new Recipe.App();
-// });
-
-// $(document).ready(function () {
-//   // executes when HTML-Document is loaded and DOM is ready
-//   console.log("(document).ready was called - document is ready!");
-// });
-
-// $(document).on("load", function () {
-//   console.log("page yen has loaded oooo")
-// });
-
-// $(window).load(function () {
-//   // executes when complete page is fully loaded, including all frames, objects and images
-//   console.log("(window).load was called - window is loaded!");
-// });

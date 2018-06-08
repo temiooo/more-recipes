@@ -1,0 +1,2 @@
+window.Recipe = {}
+window.Favourite = {}

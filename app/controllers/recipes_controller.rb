@@ -3,7 +3,8 @@ class RecipesController < ApplicationController
   include RecipesHelper
 
   def index
-    @category_recipes = Recipe.where(category_id: params[:category_id])
+    recipes = Recipe.where(category_id: params[:category_id])
+    @category_recipes = Recipe.with_favourites(recipes, current_user.id)
     @category_name = Category.find(params[:category_id]).name
   end
 
@@ -27,6 +28,9 @@ class RecipesController < ApplicationController
     render json: @recipe
   end
 
+  def show
+  end
+
   def update
     @recipe = Recipe.find(params[:id])  
     image_id = get_current_image
@@ -47,11 +51,13 @@ class RecipesController < ApplicationController
   end
 
   def my_recipes
-    @my_recipes = current_user.recipes
+    recipes = current_user.recipes
+    @my_recipes = Recipe.with_favourites(recipes, current_user.id)
   end
 
   def all_recipes
-    @recipes = Recipes.all
+    recipes = Recipe.all
+    @recipes = Recipe.with_favourites(recipes , current_user.id)
   end
 
   private
