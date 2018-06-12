@@ -1,6 +1,6 @@
 <div>
   <div class="my-recipes-header">
-    <h1 class="text-center">My Recipes</h1>
+    <h1 class="text-center">My Recipes (<%= @my_recipes.length %>)</h1>
     <button class="btn btn-primary add-recipe-btn" data-toggle="modal" data-target="#addRecipeModal">
       Add Recipe &nbsp; <i class="icon ion-plus"></i>
     </button>
@@ -11,22 +11,28 @@
     <div class="recipes-wrapper">
       <% @my_recipes.each do |my_recipe| %>
         <div class="recipe-item">
-          <%= image_tag(my_recipe.recipe_image_url) %>
+          <%= image_tag(my_recipe[:recipe].recipe_image_url) %>
           <div class="overlay">
-            <a class="recipe-edit" data-toggle="modal" data-target= "#editRecipeModal" data-value="<%= my_recipe.id %>">
+            <a class="recipe-edit" data-toggle="modal" data-target= "#editRecipeModal" data-value="<%= my_recipe[:recipe].id %>">
               <i class="icon ion-edit"></i>
             </a>
-            <%= link_to recipe_path(my_recipe.id), method: :delete, data: { confirm: 'Are you sure ?' } do %>
+            <%= link_to recipe_path(my_recipe[:recipe].id), method: :delete, data: { confirm: 'Are you sure ?' } do %>
               <i class="icon ion-trash-b"></i>
             <% end %>
           </div>
           <div class="recipe-desc">
-            <%= link_to recipe_path(my_recipe.id) do %>
-              <h3><%= my_recipe.name.capitalize %></h3>
+            <%= link_to recipe_path(my_recipe[:recipe].id) do %>
+              <h3><%= my_recipe[:recipe].name.capitalize %></h3>
             <% end %>
             <div class="actions">
-              <span class="fav"><i class="icon ion-heart"></i> &nbsp;23 favourites</span>
-              <span class="reviews"><i class="icon ion-chatboxes"></i> &nbsp;23 reviews</span>
+              <span class="fav" <% if my_recipe[:mine?] %> data-toggle="popover" data-placement="top" data-trigger="hover" data-content="You cannot favourite your own recipe" <% end %> >
+                <i class="icon ion-heart" style="pointer-events:none;color:#424242"></i>
+                &nbsp;<%= my_recipe[:favourite_count]%> favourite<%= "s" if my_recipe[:favourite_count] != 1 %>
+              </span>
+              <span class="reviews">
+                <i class="icon ion-chatboxes" style="pointer-events:none;color:#424242"></i>
+                &nbsp;23 reviews
+              </span>
             </div>
           </div>
         </div>

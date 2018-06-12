@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
-  root to: "users#new"
+  root to: "recipes#all_recipes"
 
   get "/register", to: "users#new"
   
@@ -10,6 +10,9 @@ Rails.application.routes.draw do
   get "/logout", to: "sessions#destroy"
 
   resources :users, only: [:show, :create, :edit, :update]
+
+  post "/recipe/favourite", to: "favourites#favourite"
+  delete "/recipe/unfavourite", to: "favourites#unfavourite"
   
   resources :categories, only: [:index] do
     resources :recipes, only: [:index]
