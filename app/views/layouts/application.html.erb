@@ -26,10 +26,14 @@
       </script>
     <% end %>
 
-    <%= render 'layouts/navbar' %>
+    <div class="main">
+      <%= render 'layouts/navbar' %>
 
-    <div class="main-content">
-      <%= yield %>
+      <div class="main-content">
+        <%= yield %>
+      </div>
+
+      <%= render 'layouts/footer' %>
     </div>
   </body>
 </html>
