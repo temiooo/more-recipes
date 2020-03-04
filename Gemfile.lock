@@ -133,7 +133,7 @@ GEM
       coderay (~> 1.1.0)
       method_source (~> 0.9.0)
     public_suffix (3.0.1)
-    puma (3.11.0)
+    puma (3.12.4)
     rack (2.0.3)
     rack-contrib (2.0.1)
       rack (~> 2.0)
@@ -257,7 +257,7 @@ DEPENDENCIES
   meta_request
   pg (~> 0.18)
   pry
-  puma (~> 3.7)
+  puma (~> 3.12)
   rails (~> 5.1.4)
   rspec
   sass-rails (~> 5.0)
